@@ -195,7 +195,7 @@ variable "zip_source5" {
 }
 variable "function_name5" {
   description = "function name."
-  default     = "make new order"
+  default     = "make_new_order"
 }
 variable "function_description5" {
   description = "function description."
