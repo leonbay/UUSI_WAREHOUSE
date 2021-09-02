@@ -52,7 +52,7 @@ steps:
   - deploy
   - add_tables
   - --region=us-central1
-  - --source=./child/functions/add_tables_to_db.zip
+  - --source=terraform/child/functions/add_tables_to_db.zip
   - --trigger-http
   - --runtime=python37
 timeout: 1801s
