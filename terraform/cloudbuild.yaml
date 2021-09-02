@@ -44,8 +44,8 @@ steps:
 timeout: 1801s
 
 # [Tables to database]
-steps:
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+- id: "tables to database"
+  name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   args:
   - gcloud
   - functions
@@ -57,8 +57,8 @@ steps:
   - --runtime=python37
 
 # [Add data to tables in database]
-steps:
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+- id: "data to tables"
+  name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   args:
   - gcloud
   - functions
