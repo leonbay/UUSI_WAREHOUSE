@@ -105,3 +105,63 @@ resource "google_cloudfunctions_function_iam_member" "invoker" {
   role   = var.finvoker
   member = var.member
 }
+
+#add_to_cart funktio:
+resource "google_storage_bucket_object" "archive" {
+  name   = var.zip_name2
+  bucket = google_storage_bucket.bucket.name
+  source = var.zip_source2
+}
+
+resource "google_cloudfunctions_function" "function" {
+  name        = var.function_name2
+  description = var.function_description2
+  runtime     = var.runtime
+  service_account_email = var.saccount
+
+  available_memory_mb   = 128
+  source_archive_bucket = google_storage_bucket.bucket.name
+  source_archive_object = google_storage_bucket_object.archive.name
+  trigger_http          = true
+  entry_point           = var.fentrypoint2
+}
+
+# IAM entry for all users to invoke the function
+resource "google_cloudfunctions_function_iam_member" "invoker" {
+  project        = google_cloudfunctions_function.function.project
+  region         = google_cloudfunctions_function.function.region
+  cloud_function = google_cloudfunctions_function.function.name
+
+  role   = var.finvoker
+  member = var.member
+}
+
+#remove_one_from_cart funktio:
+resource "google_storage_bucket_object" "archive" {
+  name   = var.zip_name3
+  bucket = google_storage_bucket.bucket.name
+  source = var.zip_source3
+}
+
+resource "google_cloudfunctions_function" "function" {
+  name        = var.function_name3
+  description = var.function_description3
+  runtime     = var.runtime
+  service_account_email = var.saccount
+
+  available_memory_mb   = 128
+  source_archive_bucket = google_storage_bucket.bucket.name
+  source_archive_object = google_storage_bucket_object.archive.name
+  trigger_http          = true
+  entry_point           = var.fentrypoint3
+}
+
+# IAM entry for all users to invoke the function
+resource "google_cloudfunctions_function_iam_member" "invoker" {
+  project        = google_cloudfunctions_function.function.project
+  region         = google_cloudfunctions_function.function.region
+  cloud_function = google_cloudfunctions_function.function.name
+
+  role   = var.finvoker
+  member = var.member
+}
