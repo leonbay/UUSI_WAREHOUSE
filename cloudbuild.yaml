@@ -4,7 +4,7 @@ steps:
   - gcloud
   - functions
   - deploy
-  - get_order
+  - make_new_order
   - --region=us-central1
   - --source=.
   - --trigger-http
