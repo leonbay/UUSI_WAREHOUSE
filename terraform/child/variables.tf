@@ -159,6 +159,7 @@ variable "fentrypoint3" {
   default     = "remove_one_from_cart"
 }
 
+
 #add tables to database variables:
 variable "zip_name8" {
   description = "zip's name."
@@ -205,4 +206,51 @@ variable "function_description9" {
 variable "fentrypoint9" {
   description = "entrypoint"
   default     = "populate_tables"
+
+#fetch_all_products variables:
+variable "zip_name4" {
+  description = "zip's name."
+  default     = "fetch_all_products.zip"
+}
+
+variable "zip_source4" {
+  description = "zip's source."
+  default     = "./child/functions/fetch_all_products.zip"
+}
+variable "function_name4" {
+  description = "function name."
+  default     = "fetch_all_products"
+}
+variable "function_description4" {
+  description = "function description."
+  default     = "returns all products"
+}
+
+variable "fentrypoint4" {
+  description = "entrypoint"
+  default     = "connect"
+}
+
+#final_order variables:
+variable "zip_name5" {
+  description = "zip's name."
+  default     = "final_order.zip"
+}
+
+variable "zip_source5" {
+  description = "zip's source."
+  default     = "./child/functions/final_order.zip"
+}
+variable "function_name5" {
+  description = "function name."
+  default     = "make_new_order"
+}
+variable "function_description5" {
+  description = "function description."
+  default     = "Makes new final order"
+}
+
+variable "fentrypoint5" {
+  description = "entrypoint"
+  default     = "get_order"
 }
