@@ -67,6 +67,7 @@ variable "bucket_name" {
   description = "bucket's name."
   default     = "delete_old_carts"
 }
+#henkan funktio
 variable "zip_name" {
   description = "zip's name."
   default     = "delete_old_cart.zip"
@@ -98,6 +99,92 @@ variable "saccount" {
 variable "fentrypoint" {
   description = "entrypoint"
   default     = "poistoa"
+}
+variable "finvoker" {
+  description = "invoker"
+  default     = "roles/cloudfunctions.invoker"
+}
+
+variable "member" {
+  description = "memeber"
+  default     = "allUsers"
+}
+
+#add_to_cart funktion variables:
+variable "zip_name2" {
+  description = "zip's name."
+  default     = "add_to_cart.zip"
+}
+
+variable "zip_source2" {
+  description = "zip's source."
+  default     = "./child/functions/add_to_cart.zip"
+}
+variable "function_name2" {
+  description = "function name."
+  default     = "add_to_cart"
+}
+variable "function_description2" {
+  description = "function description."
+  default     = "adds to cart, removes from storage"
+}
+
+variable "runtime" {
+  description = "function runtime."
+  default     = "python37"
+}
+
+variable "saccount" {
+  description = "service account."
+  default     = "terraformer@axial-canto-324606.iam.gserviceaccount.com"
+}
+
+variable "fentrypoint2" {
+  description = "entrypoint"
+  default     = "add_to_cart"
+}
+variable "finvoker" {
+  description = "invoker"
+  default     = "roles/cloudfunctions.invoker"
+}
+
+variable "member" {
+  description = "memeber"
+  default     = "allUsers"
+}
+
+#remove_one_from_cart variables:
+variable "zip_name3" {
+  description = "zip's name."
+  default     = "remove_one_from_cart.zip"
+}
+
+variable "zip_source3" {
+  description = "zip's source."
+  default     = "./child/functions/remove_one_from_cart.zip"
+}
+variable "function_name3" {
+  description = "function name."
+  default     = "remove_one_from_cart"
+}
+variable "function_description3" {
+  description = "function description."
+  default     = "removes one from cart, adds one to storage"
+}
+
+variable "runtime" {
+  description = "function runtime."
+  default     = "python37"
+}
+
+variable "saccount" {
+  description = "service account."
+  default     = "terraformer@axial-canto-324606.iam.gserviceaccount.com"
+}
+
+variable "fentrypoint3" {
+  description = "entrypoint"
+  default     = "remove_one_from_cart"
 }
 variable "finvoker" {
   description = "invoker"
