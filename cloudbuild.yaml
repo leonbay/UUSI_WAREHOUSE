@@ -1,0 +1,12 @@
+steps:
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  args:
+  - gcloud
+  - functions
+  - deploy
+  - helloWorld
+  - --region=us-central1
+  - --source=.
+  - --trigger-http
+  - --runtime=python37
+  - --allow-unauthenticated
