@@ -35,7 +35,7 @@ variable "db_name" {
 variable "user_name" { }
 
 variable "user_host" {
-  description = "The host for the default user"
+  description = "The host for the default user."
   default     = ""
 }
 
