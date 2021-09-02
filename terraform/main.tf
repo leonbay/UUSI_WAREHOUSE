@@ -96,3 +96,32 @@ resource "google_cloud_scheduler_job" "job" {
     uri         = module.child.function_url
   }
 }
+
+
+resource "google_api_gateway_api" "piirakka" {
+  provider = google-beta
+  api_id   = "piirakka"
+}
+
+resource "google_api_gateway_api_config" "api-config" {
+  provider      = google-beta
+  api           = "piirakka"
+  api_config_id = "api-config"
+  depends_on = [google_api_gateway_api.piirakka]
+
+  openapi_documents {
+    document {
+      path     = var.path
+      contents = filebase64(var.contents_file)
+    }
+  }
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
+resource "google_api_gateway_gateway" "api-gw-gw" {
+  provider   = google-beta
+  api_config = google_api_gateway_api_config.api-config.id
+  gateway_id = "api-gw-gw"
+}

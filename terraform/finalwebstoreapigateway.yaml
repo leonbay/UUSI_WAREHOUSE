@@ -1,0 +1,57 @@
+swagger: '2.0'
+info:
+  title: webstore-apigateway
+  description: Post-method to PubSub messages
+  version: 1.0.0
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+ 
+  /list:    
+    get:
+      summary: get items from storage
+      operationId: listitems
+      x-google-backend:
+        address: https://us-central1-axial-canto-324606.cloudfunctions.net/fetch_all_products
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
+  
+
+  /finalorder/{customer_id}:    
+    get:
+      parameters:
+        - in: path
+          name: customer_id
+          required: true
+          type: integer
+          minimum: 1
+          description: customer_id
+      summary: finalizes order
+      operationId: finalorderfunc
+      x-google-backend:
+        address: https://us-central1-axial-canto-324606.cloudfunctions.net/final_order
+        path_translation: CONSTANT_ADDRESS
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
+
+  /addtocart:
+    post:
+      summary: Add items to cart
+      operationId: addcart
+      x-google-backend:
+        address: https://us-central1-axial-canto-324606.cloudfunctions.net/add_to_cart
+      responses:
+        '200':
+          description: No errors
+          schema:
+            type: string
+            
+      
