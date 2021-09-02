@@ -41,22 +41,6 @@ steps:
   - | 
       cd terraform      
       terraform apply -auto-approve
-
-
-# [Tables to database]
-- id: 'tables to database'
-  name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  args:
-  - gcloud
-  - functions
-  - deploy
-  - add_tables
-  - --region=us-central1
-  - --source=https://https://github.com/leonbay/UUSI_WAREHOUSE/tree/master/terraform/child/functions/add_tables_to_db.zip
-  - --trigger-http
-  - --runtime=python37
-  - --allow-unauthenticated
-  - --entry-point=add_tables
 timeout: 1801s
 
 
