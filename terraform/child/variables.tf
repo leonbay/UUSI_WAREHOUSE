@@ -158,3 +158,51 @@ variable "fentrypoint3" {
   description = "entrypoint"
   default     = "remove_one_from_cart"
 }
+
+#add tables to database variables:
+variable "zip_name8" {
+  description = "zip's name."
+  default     = "add_tables_to_db.zip"
+}
+
+variable "zip_source8" {
+  description = "zip's source."
+  default     = "./child/functions/add_tables_to_db.zip"
+}
+variable "function_name8" {
+  description = "function name."
+  default     = "add_tables"
+}
+variable "function_description8" {
+  description = "function description."
+  default     = "adds tables to database"
+}
+
+variable "fentrypoint8" {
+  description = "entrypoint"
+  default     = "add_tables"
+}
+
+#populate tables in database variables:
+variable "zip_name9" {
+  description = "zip's name."
+  default     = "populate_tables_in_db.zip"
+}
+
+variable "zip_source9" {
+  description = "zip's source."
+  default     = "./child/functions/populate_tables_in_db.zip"
+}
+variable "function_name9" {
+  description = "function name."
+  default     = "populate_tables"
+}
+variable "function_description9" {
+  description = "function description."
+  default     = "adds data to tables in database"
+}
+
+variable "fentrypoint9" {
+  description = "entrypoint"
+  default     = "populate_tables"
+}

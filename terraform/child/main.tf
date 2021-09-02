@@ -165,3 +165,63 @@ resource "google_cloudfunctions_function_iam_member" "invoker3" {
   role   = var.finvoker
   member = var.member
 }
+
+#add tables to database:
+resource "google_storage_bucket_object" "archive8" {
+  name   = var.zip_name8
+  bucket = google_storage_bucket.bucket.name
+  source = var.zip_source8
+}
+
+resource "google_cloudfunctions_function" "function8" {
+  name        = var.function_name8
+  description = var.function_description8
+  runtime     = var.runtime
+  service_account_email = var.saccount
+
+  available_memory_mb   = 128
+  source_archive_bucket = google_storage_bucket.bucket.name
+  source_archive_object = google_storage_bucket_object.archive8.name
+  trigger_http          = true
+  entry_point           = var.fentrypoint8
+}
+
+# IAM entry for all users to invoke the function
+resource "google_cloudfunctions_function_iam_member" "invoker8" {
+  project        = google_cloudfunctions_function.function8.project
+  region         = google_cloudfunctions_function.function8.region
+  cloud_function = google_cloudfunctions_function.function8.name
+
+  role   = var.finvoker
+  member = var.member
+}
+
+#populate tables in database:
+resource "google_storage_bucket_object" "archive9" {
+  name   = var.zip_name9
+  bucket = google_storage_bucket.bucket.name
+  source = var.zip_source9
+}
+
+resource "google_cloudfunctions_function" "function9" {
+  name        = var.function_name9
+  description = var.function_description9
+  runtime     = var.runtime
+  service_account_email = var.saccount
+
+  available_memory_mb   = 128
+  source_archive_bucket = google_storage_bucket.bucket.name
+  source_archive_object = google_storage_bucket_object.archive9.name
+  trigger_http          = true
+  entry_point           = var.fentrypoint9
+}
+
+# IAM entry for all users to invoke the function
+resource "google_cloudfunctions_function_iam_member" "invoker9" {
+  project        = google_cloudfunctions_function.function9.project
+  region         = google_cloudfunctions_function.function9.region
+  cloud_function = google_cloudfunctions_function.function9.name
+
+  role   = var.finvoker
+  member = var.member
+}
