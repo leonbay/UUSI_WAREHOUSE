@@ -157,7 +157,7 @@ resource "google_cloudfunctions_function" "function3" {
 }
 
 # IAM entry for all users to invoke the function
-resource "google_cloudfunctions_function_iam_member" "invoker" {
+resource "google_cloudfunctions_function_iam_member" "invoker3" {
   project        = google_cloudfunctions_function.function3.project
   region         = google_cloudfunctions_function.function3.region
   cloud_function = google_cloudfunctions_function.function3.name
