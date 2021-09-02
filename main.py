@@ -105,7 +105,7 @@ def add_to_cart(request):
                     conn.close()
     else:
         print(f"not enought products in storage. Maximum amount to purchase at the moment is {num}")
-
+    print("se oli siinä!") #höpömuokattava testikohta
 
 def amount_in_storage(tuote: str, paljonko: int):
     #tarkasta onko varastossa tuotetta pyydetty määrä:
