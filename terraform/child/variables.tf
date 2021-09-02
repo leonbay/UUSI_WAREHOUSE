@@ -129,29 +129,11 @@ variable "function_description2" {
   default     = "adds to cart, removes from storage"
 }
 
-variable "runtime" {
-  description = "function runtime."
-  default     = "python37"
-}
-
-variable "saccount" {
-  description = "service account."
-  default     = "terraformer@axial-canto-324606.iam.gserviceaccount.com"
-}
-
 variable "fentrypoint2" {
   description = "entrypoint"
   default     = "add_to_cart"
 }
-variable "finvoker" {
-  description = "invoker"
-  default     = "roles/cloudfunctions.invoker"
-}
 
-variable "member" {
-  description = "memeber"
-  default     = "allUsers"
-}
 
 #remove_one_from_cart variables:
 variable "zip_name3" {
@@ -172,26 +154,7 @@ variable "function_description3" {
   default     = "removes one from cart, adds one to storage"
 }
 
-variable "runtime" {
-  description = "function runtime."
-  default     = "python37"
-}
-
-variable "saccount" {
-  description = "service account."
-  default     = "terraformer@axial-canto-324606.iam.gserviceaccount.com"
-}
-
 variable "fentrypoint3" {
   description = "entrypoint"
   default     = "remove_one_from_cart"
-}
-variable "finvoker" {
-  description = "invoker"
-  default     = "roles/cloudfunctions.invoker"
-}
-
-variable "member" {
-  description = "memeber"
-  default     = "allUsers"
 }
