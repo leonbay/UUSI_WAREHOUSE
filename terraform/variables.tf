@@ -32,4 +32,13 @@ variable "user_name" {
 
     variable "http_method" {
  default     = "GET"
- } 
+ }
+
+
+variable "contents_file" {
+  default = "./finalwebstoreapigateway.yaml"
+}
+
+variable "path" {
+  default = "finalwebstoreapigateway.yaml"
+} 
