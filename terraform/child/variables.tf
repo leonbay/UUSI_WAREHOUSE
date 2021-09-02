@@ -206,6 +206,7 @@ variable "function_description9" {
 variable "fentrypoint9" {
   description = "entrypoint"
   default     = "populate_tables"
+}
 
 #fetch_all_products variables:
 variable "zip_name4" {
