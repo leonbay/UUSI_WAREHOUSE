@@ -172,26 +172,22 @@ resource "google_storage_bucket_object" "archive4" {
   bucket = google_storage_bucket.bucket.name
   source = var.zip_source4
 }
-
 resource "google_cloudfunctions_function" "function4" {
   name        = var.function_name4
   description = var.function_description4
   runtime     = var.runtime
   service_account_email = var.saccount
-
   available_memory_mb   = 128
   source_archive_bucket = google_storage_bucket.bucket.name
   source_archive_object = google_storage_bucket_object.archive4.name
   trigger_http          = true
   entry_point           = var.fentrypoint4
 }
-
 # IAM entry for all users to invoke the function
 resource "google_cloudfunctions_function_iam_member" "invoker4" {
   project        = google_cloudfunctions_function.function4.project
   region         = google_cloudfunctions_function.function4.region
   cloud_function = google_cloudfunctions_function.function4.name
-
   role   = var.finvoker
   member = var.member
 }
@@ -202,28 +198,82 @@ resource "google_storage_bucket_object" "archive5" {
   bucket = google_storage_bucket.bucket.name
   source = var.zip_source5
 }
-
 resource "google_cloudfunctions_function" "function5" {
   name        = var.function_name5
   description = var.function_description5
   runtime     = var.runtime
   service_account_email = var.saccount
-
   available_memory_mb   = 128
   source_archive_bucket = google_storage_bucket.bucket.name
   source_archive_object = google_storage_bucket_object.archive5.name
   trigger_http          = true
   entry_point           = var.fentrypoint5
 }
-
 # IAM entry for all users to invoke the function
 resource "google_cloudfunctions_function_iam_member" "invoker5" {
   project        = google_cloudfunctions_function.function5.project
   region         = google_cloudfunctions_function.function5.region
   cloud_function = google_cloudfunctions_function.function5.name
+  role   = var.finvoker
+  member = var.member
+}
+
+#add tables to database:
+resource "google_storage_bucket_object" "archive8" {
+  name   = var.zip_name8
+  bucket = google_storage_bucket.bucket.name
+  source = var.zip_source8
+}
+
+resource "google_cloudfunctions_function" "function8" {
+  name        = var.function_name8
+  description = var.function_description8
+  runtime     = var.runtime
+  service_account_email = var.saccount
+
+  available_memory_mb   = 128
+  source_archive_bucket = google_storage_bucket.bucket.name
+  source_archive_object = google_storage_bucket_object.archive8.name
+  trigger_http          = true
+  entry_point           = var.fentrypoint8
+}
+
+# IAM entry for all users to invoke the function
+resource "google_cloudfunctions_function_iam_member" "invoker8" {
+  project        = google_cloudfunctions_function.function8.project
+  region         = google_cloudfunctions_function.function8.region
+  cloud_function = google_cloudfunctions_function.function8.name
 
   role   = var.finvoker
   member = var.member
 }
 
-#test
+#populate tables in database:
+resource "google_storage_bucket_object" "archive9" {
+  name   = var.zip_name9
+  bucket = google_storage_bucket.bucket.name
+  source = var.zip_source9
+}
+
+resource "google_cloudfunctions_function" "function9" {
+  name        = var.function_name9
+  description = var.function_description9
+  runtime     = var.runtime
+  service_account_email = var.saccount
+
+  available_memory_mb   = 128
+  source_archive_bucket = google_storage_bucket.bucket.name
+  source_archive_object = google_storage_bucket_object.archive9.name
+  trigger_http          = true
+  entry_point           = var.fentrypoint9
+}
+
+# IAM entry for all users to invoke the function
+resource "google_cloudfunctions_function_iam_member" "invoker9" {
+  project        = google_cloudfunctions_function.function9.project
+  region         = google_cloudfunctions_function.function9.region
+  cloud_function = google_cloudfunctions_function.function9.name
+
+  role   = var.finvoker
+  member = var.member
+}

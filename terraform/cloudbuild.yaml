@@ -42,6 +42,34 @@ steps:
       cd terraform      
       terraform apply -auto-approve
 timeout: 1801s
+
+# [Tables to database]
+steps:
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  args:
+  - gcloud
+  - functions
+  - deploy
+  - add_tables
+  - --region=us-central1
+  - --source=./child/functions/add_tables_to_db.zip
+  - --trigger-http
+  - --runtime=python37
+
+# [Add data to tables in database]
+steps:
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  args:
+  - gcloud
+  - functions
+  - deploy
+  - populate_tables
+  - --region=us-central1
+  - --source=./child/functions/populate_tables_in_db.zip
+  - --trigger-http
+  - --runtime=python37
+
+
 #- id: 'tf destroy'
   #name: 'hashicorp/terraform:1.0.5'
   #entrypoint: 'sh'
