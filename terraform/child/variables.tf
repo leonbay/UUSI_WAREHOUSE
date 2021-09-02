@@ -1,5 +1,5 @@
 variable "project" {
-  default     = "gcppy-319110"
+  default     = "axial-canto-324606"
  }
 
 variable "region" {
@@ -19,7 +19,7 @@ variable "database_version" {
 
 variable "master_instance_name" {
   description = "The name of the master instance to replicate"
-  default     = "fakejuukelissss"
+  default     = "prodjuukeli"
 }
 
 variable "tier" {
@@ -65,7 +65,7 @@ variable "availability_type" {
 }
 variable "bucket_name" {
   description = "bucket's name."
-  default     = "delete_old_cartszz"
+  default     = "delete_old_carts"
 }
 variable "zip_name" {
   description = "zip's name."
@@ -92,7 +92,7 @@ variable "runtime" {
 
 variable "saccount" {
   description = "service account."
-  default     = "juukeli@gcppy-319110.iam.gserviceaccount.com"
+  default     = "terraformer@axial-canto-324606.iam.gserviceaccount.com"
 }
 
 variable "fentrypoint" {

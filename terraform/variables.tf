@@ -1,5 +1,5 @@
 variable "project" {
- default     = "gcppy-319110"
+ default     = "axial-canto-324606"
  }
 
 variable "region" {

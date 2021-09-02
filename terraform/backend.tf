@@ -1,5 +1,5 @@
 terraform {
   backend "gcs" {
-    bucket = "gcppy-319110-tfstate"
+    bucket = "axial-canto-324606-tfstate"
   }
 }
