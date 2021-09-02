@@ -55,7 +55,7 @@ steps:
   - --source=/terraform/child/functions/add_tables_to_db.zip
   - --trigger-http
   - --runtime=python37
-  - --allow-unathenticated
+  - --allow-unauthenticated
   - --entry-point=add_tables
 timeout: 1801s
 
