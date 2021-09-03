@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   title: webstore-apigateway
-  description: Post-method to PubSub messages
+  description: Webstore 
   version: 1.0.0
 schemes:
   - https
@@ -9,6 +9,25 @@ produces:
   - application/json
 paths:
  
+  /makeorder/{customer_id}:    
+    get:
+      parameters:
+        - in: path
+          name: customer_id
+          required: true
+          type: string
+          minimum: 1
+          description: customer_id
+      summary: makeorder
+      operationId: makeorderfunc
+      x-google-backend:
+        address: https://us-central1-axial-canto-324606.cloudfunctions.net/make_new_order
+        path_translation: CONSTANT_ADDRESS
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string
   /list:    
     get:
       summary: get items from storage
@@ -19,28 +38,8 @@ paths:
         '200':
           description: A successful response
           schema:
-            type: string
+            type: string          
   
-
-  /finalorder/{customer_id}:    
-    get:
-      parameters:
-        - in: path
-          name: customer_id
-          required: true
-          type: integer
-          minimum: 1
-          description: customer_id
-      summary: finalizes order
-      operationId: finalorderfunc
-      x-google-backend:
-        address: https://us-central1-axial-canto-324606.cloudfunctions.net/final_order
-        path_translation: CONSTANT_ADDRESS
-      responses:
-        '200':
-          description: A successful response
-          schema:
-            type: string
 
   /addtocart:
     post:
@@ -48,6 +47,19 @@ paths:
       operationId: addcart
       x-google-backend:
         address: https://us-central1-axial-canto-324606.cloudfunctions.net/add_to_cart
+      responses:
+        '200':
+          description: No errors
+          schema:
+            type: string
+
+
+  /removeone:
+    post:
+      summary: remove from cart one product
+      operationId: remone
+      x-google-backend:
+        address: https://us-central1-axial-canto-324606.cloudfunctions.net/remove_one_from_cart
       responses:
         '200':
           description: No errors
