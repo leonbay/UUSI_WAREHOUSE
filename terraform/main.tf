@@ -103,10 +103,10 @@ resource "google_api_gateway_api" "piirakka" {
   api_id   = "piirakka"
 }
 
-resource "google_api_gateway_api_config" "api-config" {
+resource "google_api_gateway_api_config" "api-config2" {
   provider      = google-beta
   api           = "piirakka"
-  api_config_id = "api-config"
+  api_config_id = "api-config2"
   depends_on = [google_api_gateway_api.piirakka]
 
   openapi_documents {
@@ -122,6 +122,6 @@ resource "google_api_gateway_api_config" "api-config" {
 
 resource "google_api_gateway_gateway" "api-gw-gw" {
   provider   = google-beta
-  api_config = google_api_gateway_api_config.api-config.id
+  api_config = google_api_gateway_api_config.api-config2.id
   gateway_id = "api-gw-gw"
 }
