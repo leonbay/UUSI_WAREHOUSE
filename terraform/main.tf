@@ -125,3 +125,6 @@ resource "google_api_gateway_gateway" "api-gw-gw" {
   api_config = google_api_gateway_api_config.api-config2.id
   gateway_id = "api-gw-gw"
 }
+resource "google_storage_bucket" "bucket1" {
+  name = "demotaampas"
+}
